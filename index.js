@@ -1,5 +1,6 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
+const cookies = require('./lib/cookies');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,12 +21,6 @@ app.set('view engine', 'handlebars');
  * in layout we can add path to file from /public (this directory is not visible for client)
  */
 app.use(express.static(__dirname + '/public'));
-
-const someCookies = [
-    'Cookie 1',
-    'Cookie 2',
-    'Cookie 3'
-];
 
 /**
  * app.METHOD(route, function)
@@ -52,8 +47,7 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     // send dynamically generated value
-    const randomCookie = someCookies[Math.floor(Math.random() * someCookies.length)];
-    res.render('about', { cookie: randomCookie });
+    res.render('about', { cookie: cookies.getCookie() });
 });
 
 app.get('/about/contact', (req, res) => {
