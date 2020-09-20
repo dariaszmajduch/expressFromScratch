@@ -53,6 +53,12 @@ app.use(handlers.notFound);
 
 app.use(handlers.serverError);
 
-app.listen(port, () => console.log(
-    `Express app is running: http://localhost:${port}`
-));
+/**
+ * to run integration tests application should be available as a module 
+ */
+if(require.main === module) {
+    app.listen(port, () => console.log(`Express app is running: http://localhost:${port}`));
+} else {
+    module.exports = app;
+}
+
