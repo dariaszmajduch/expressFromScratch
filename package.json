@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint index.js lib"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.9.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "jest": "^26.4.2"
