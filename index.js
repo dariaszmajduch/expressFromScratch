@@ -8,11 +8,14 @@ const port = process.env.PORT || 3000;
 /**
  * views do not to have to be static (as images or CSS files)
  * Express uses different views engines i.e. Pug or Handlebars (different levels of abstraction)
- * configuration of engine Handlebars engine below, layouts and pages are defined in views directory
- * if we do not use other layout by default 'main' will be used
+ * configuration of engine Handlebars engine below, by default layouts should be in views/layouts
+ * pages directly in views directory
+ * by default 'main' will be used (defaultLayout parameter)
+ * default extension is .handlebars, but could be changed by extname parameter
  */
 app.engine('handlebars', expressHandlebars({
     defaultLayout: 'main',
+    // extname: '.hbs'
 }));
 app.set('view engine', 'handlebars');
 
@@ -33,7 +36,7 @@ app.use(express.static(__dirname + '/public'));
 /**
  * order of routes definition (and middleware) is important! i.e.
  * if we are using wildcard *
- * app.get('/about*', () => { ... }); 
+ * app.get('/about*', () => { ... });
  * then below routes will never match
  * app.get('/about/contact', () => { ... });
  * app.get('/about/other', () => { ... });
@@ -43,6 +46,8 @@ app.get('/', handlers.home);
 app.get('/about', handlers.about);
 
 app.get('/about/contact', handlers.contact);
+
+app.get('/other', handlers.other);
 
 /**
  * not standard pages are handled by app.use (it adds middleware)
@@ -54,7 +59,7 @@ app.use(handlers.notFound);
 app.use(handlers.serverError);
 
 /**
- * to run integration tests application should be available as a module 
+ * to run integration tests application should be available as a module
  */
 if(require.main === module) {
     app.listen(port, () => console.log(`Express app is running: http://localhost:${port}`));
