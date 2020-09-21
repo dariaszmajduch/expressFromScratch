@@ -1,1 +1,33 @@
 <h1>About/contact page</h1>
+<!-- Comment visible on web page -->
+{{! Comment visible only in handlebars file }}
+<h3>Some content</h3>
+<p>{{context}}</p>
+<p>{{{contextWithHtml}}}</p>
+<ul>
+    {{#each smallList}}
+    {{! key word #each allows to iterate over the list - each time context is changed }}
+        <li>
+            {{name}} & {{value}}
+            {{#if ../precedentContext}}
+                {{! key word #if allows to display element/iterate over arrow if it exists }}
+                ({{../precedentContext.name}})
+                {{! ../ allows to access precedent context; if it is an object attributes are available using . }}
+            {{/if}}
+        </li>
+    {{/each}}
+    {{! for #if and #each we can use optional #else part - together with #each instruction will be done when array is empty }}
+</ul>
+{{#unless unlessArray}}
+    {{! key word #unless points instruction which is done when argument is not true (opposite of if) }}
+    <p>It will be visible only when unlessArray is empty</p>
+{{/unless}}
+<p>
+    {{#each elseArray}}
+        <b>{{.}}</b>
+        {{! . concerns current context }}
+    {{else}}
+        It will be visible only when elseArray is empty
+    {{/each}}
+</p>
+
