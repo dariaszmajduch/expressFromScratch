@@ -1,6 +1,7 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const handlers = require('./lib/handlers');
+const jobsMiddleware = require('./lib/middleware/jobs');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,6 +25,11 @@ app.set('view engine', 'handlebars');
  * in layout we can add path to file from /public (this directory is not visible for client)
  */
 app.use(express.static(__dirname + '/public'));
+
+/**
+ * additional middleware used for partials (in views)
+ */
+app.use(jobsMiddleware);
 
 /**
  * app.METHOD(route, function)
