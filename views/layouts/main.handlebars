@@ -1,12 +1,21 @@
 <!doctype html>
 <html>
   <head>
-      <link rel="stylesheet" href="css/styles.css">
-      <title>Express app</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Jenkins dashboard</title>
   </head>
   <body>
-    <img src="/img/logo.png" alt="Logo for express app">
-    {{{body}}}
-    <a href="/" data-test-id="home">Return to home page</a>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+        Jenkins dashboard
+      </a>
+    </nav>
+    <div class="container-fluid">
+      {{{body}}}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   </body>
 </html>

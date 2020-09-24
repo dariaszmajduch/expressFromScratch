@@ -51,9 +51,7 @@ app.get('/', handlers.home);
 
 app.get('/about', handlers.about);
 
-app.get('/about/contact', handlers.contact);
-
-app.get('/other', handlers.other);
+app.get('/contact', handlers.contact);
 
 /**
  * not standard pages are handled by app.use (it adds middleware)
