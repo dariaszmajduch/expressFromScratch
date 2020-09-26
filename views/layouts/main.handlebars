@@ -1,21 +1,22 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Jenkins dashboard</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">
-        <img src="/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
-        Jenkins dashboard
-      </a>
-    </nav>
-    <div class="container-fluid">
-      {{{body}}}
-    </div>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Work organizer</title>
+    </head>
+    <body>
+        {{> navigation}}
+        {{! {{> informs express-handlebars that it is a part (a widget) which could be used on different pages;
+        parts should be placed in views/partials directory and named, in this case, navigation.handlebars
+        for better organization we can use subdirectories
+        }}
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  </body>
+        <div class="container-fluid">
+          {{{body}}}
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
 </html>
