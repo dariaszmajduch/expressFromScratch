@@ -49,8 +49,6 @@ app.use(tasksListMiddleware);
  */
 app.get('/', handlers.home);
 
-app.get('/about', handlers.about);
-
 app.get('/contact', handlers.contact);
 
 /**
