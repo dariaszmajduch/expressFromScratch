@@ -1,7 +1,7 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const handlers = require('./lib/handlers');
-const jobsMiddleware = require('./lib/middleware/jobs');
+const tasksListMiddleware = require('./lib/middleware/tasks_list');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -29,7 +29,7 @@ app.use(express.static(__dirname + '/public'));
 /**
  * additional middleware used for partials (in views)
  */
-app.use(jobsMiddleware);
+app.use(tasksListMiddleware);
 
 /**
  * app.METHOD(route, function)
