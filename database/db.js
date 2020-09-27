@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Tasks = require('./models/tasks');
 
 mongoose.connect('mongodb://root:rootpass@mongo:27017/workOrganizer', {
     useNewUrlParser: true,
@@ -8,6 +9,7 @@ mongoose.connect('mongodb://root:rootpass@mongo:27017/workOrganizer', {
 });
 
 const db = mongoose.connection;
+
 db.on('error', (err) => {
     console.error(`MongoDB error: ${err} `);
     process.exit(1);
