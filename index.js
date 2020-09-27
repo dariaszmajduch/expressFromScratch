@@ -2,6 +2,7 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const handlers = require('./lib/handlers');
 const tasksListMiddleware = require('./lib/middleware/tasks_list');
+const db = require('./db');
 
 const app = express();
 const port = process.env.PORT || 3000;
