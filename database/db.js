@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Tasks = require('./models/tasks');
+const Notes = require('./models/notes');
 
 mongoose.connect('mongodb://root:rootpass@mongo_work_org:27017', {
     useNewUrlParser: true,
