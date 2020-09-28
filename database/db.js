@@ -19,3 +19,8 @@ db.on('error', (err) => {
 db.once('open', () => {
     console.log('Connected');
 });
+
+module.exports = {
+    getTasks: async (options = {}) => Tasks.find(),
+    getNotes: async (options = {}) => Notes.find(),
+};

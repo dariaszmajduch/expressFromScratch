@@ -52,6 +52,8 @@ app.get('/', handlers.home);
 
 app.get('/contact', handlers.contact);
 
+app.get('/notes', handlers.notes);
+
 /**
  * not standard pages are handled by app.use (it adds middleware)
  * it handles request which do not match to any defined routes

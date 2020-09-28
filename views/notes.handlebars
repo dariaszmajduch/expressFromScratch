@@ -1,0 +1,25 @@
+<h3 class="text-center">Current notes</h3>
+<div class="table-responsive-md">
+    <table class="table table-striped table-hover table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each notes}}
+            <tr>
+                <th scope="row" class="count"></th>
+                <td>{{title}}</td>
+                <td>{{description}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td class="text-center" colspan="5">No notes</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
