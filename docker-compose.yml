@@ -3,10 +3,21 @@ version: '3.1'
 services:
   mongo:
     image: mongo:4.0.20-xenial
-    restart: always
     container_name: mongo_work_org
+    volumes:
+      - mongodb-data:/data/db
     ports:
       - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpass
+  express-from-scratch:
+    build: .
+    container_name: express_from_scratch
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+
+volumes:
+  mongodb-data:

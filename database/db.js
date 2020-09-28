@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Tasks = require('./models/tasks');
 
-mongoose.connect('mongodb://root:rootpass@mongo:27017/workOrganizer', {
+mongoose.connect('mongodb://root:rootpass@mongo_work_org:27017', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
