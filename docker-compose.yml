@@ -11,9 +11,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpass
-  express-from-scratch:
+  work_organizer:
     build: .
-    container_name: express_from_scratch
+    container_name: work_organizer
     ports:
       - 3000:3000
     depends_on:
