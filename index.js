@@ -52,6 +52,8 @@ app.get('/', handlers.home);
 
 app.get('/contact', handlers.contact);
 
+app.get('/tasks', handlers.tasks);
+
 app.get('/notes', handlers.notes);
 
 /**
