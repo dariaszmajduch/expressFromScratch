@@ -1,5 +1,7 @@
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
+const bodyParser = require('body-parser');
+
 const handlers = require('./lib/handlers');
 const tasksListMiddleware = require('./lib/middleware/tasks_list');
 
@@ -18,10 +20,9 @@ app.engine('handlebars', expressHandlebars({
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
-/**
- * additional middleware used for partials (in views)
- */
+// MIDDLEWARE FOR PARTIALS
 app.use(tasksListMiddleware);
 
 // ROUTES DEFINITIONS
@@ -30,9 +31,8 @@ app.get('/contact', handlers.contact);
 app.get('/tasks', handlers.tasks);
 app.get('/notes', handlers.notes);
 
-/**
- *
- */
+app.post('/api/add-task', handlers.api.addTask);
+
 app.use(handlers.notFound);
 app.use(handlers.serverError);
 

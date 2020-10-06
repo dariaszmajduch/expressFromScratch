@@ -21,6 +21,14 @@ db.once('open', () => {
 });
 
 module.exports = {
-    getTasks: async (options = {}) => Tasks.find(options),
-    getNotes: async (options = {}) => Notes.find(options),
+    getTasksFromDB: async (options = {}) => Tasks.find(options),
+    addTaskToDB: async (name, description, isStarted, type) => {
+      await Tasks.create({
+          name: name,
+          description: description,
+          isStarted: isStarted,
+          type: type,
+      })
+    },
+    getNotesFromDB: async (options = {}) => Notes.find(options),
 };
