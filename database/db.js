@@ -31,4 +31,10 @@ module.exports = {
       })
     },
     getNotesFromDB: async (options = {}) => Notes.find(options),
+    addNoteToDB: async (title, description) => {
+      await Notes.create({
+          title: title,
+          description: description,
+      })
+    },
 };

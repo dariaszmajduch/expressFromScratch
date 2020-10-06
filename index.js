@@ -4,9 +4,10 @@ const bodyParser = require('body-parser');
 
 const handlers = require('./lib/handlers');
 const tasksListMiddleware = require('./lib/middleware/tasks_list');
+const notesListMiddleware = require('./lib/middleware/notes_list');
 
-/* eslint-disable no-unused-vars */
 // We want to initialize DB connection when app starts
+/* eslint-disable no-unused-vars */
 const db = require('./database/db');
 /* eslint-enable no-unused-vars */
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 
 // MIDDLEWARE FOR PARTIALS
 app.use(tasksListMiddleware);
+app.use(notesListMiddleware);
 
 // ROUTES DEFINITIONS
 app.get('/', handlers.home);
@@ -32,6 +34,7 @@ app.get('/tasks', handlers.tasks);
 app.get('/notes', handlers.notes);
 
 app.post('/api/add-task', handlers.api.addTask);
+app.post('/api/add-note', handlers.api.addNote);
 
 app.use(handlers.notFound);
 app.use(handlers.serverError);
