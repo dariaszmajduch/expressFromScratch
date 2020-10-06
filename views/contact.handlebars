@@ -10,7 +10,7 @@
         <li>
             {{name}} & {{value}}
             {{#if ../precedentContext}}
-                {{! key word #if allows to display element/iterate over arrow if it exists }}
+                {{! key word #if allows to display element/iterate over array if it exists }}
                 ({{../precedentContext.name}})
                 {{! ../ allows to access precedent context; if it is an object attributes are available using . }}
             {{/if}}
