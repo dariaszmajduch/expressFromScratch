@@ -2,7 +2,11 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const handlers = require('./lib/handlers');
 const tasksListMiddleware = require('./lib/middleware/tasks_list');
+
+/* eslint-disable no-unused-vars */
+// We want to initialize DB connection when app starts
 const db = require('./database/db');
+/* eslint-enable no-unused-vars */
 
 const app = express();
 const port = process.env.PORT || 3000;
