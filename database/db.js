@@ -23,18 +23,28 @@ db.once('open', () => {
 module.exports = {
     getTasksFromDB: async (options = {}) => Tasks.find(options),
     addTaskToDB: async (name, description, isStarted, type) => {
-      await Tasks.create({
-          name: name,
-          description: description,
-          isStarted: isStarted,
-          type: type,
-      })
+        await Tasks.create({
+            name: name,
+            description: description,
+            isStarted: isStarted,
+            type: type,
+        })
+    },
+    deleteTaskFromDB: async (id) => {
+        await Tasks.findOneAndDelete({
+            _id: id
+        })
     },
     getNotesFromDB: async (options = {}) => Notes.find(options),
     addNoteToDB: async (title, description) => {
-      await Notes.create({
-          title: title,
-          description: description,
-      })
+        await Notes.create({
+            title: title,
+            description: description,
+        })
+    },
+    deleteNoteFromDB: async (id) => {
+        await Notes.findOneAndDelete({
+            _id: id
+        })
     },
 };

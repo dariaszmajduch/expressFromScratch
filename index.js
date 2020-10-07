@@ -33,6 +33,9 @@ app.get('/contact', handlers.contact);
 app.get('/tasks', handlers.tasks);
 app.get('/notes', handlers.notes);
 
+app.get('/tasks/delete/:id', handlers.api.deleteTask);
+app.get('/notes/delete/:id', handlers.api.deleteNote);
+
 app.post('/api/add-task', handlers.api.addTask);
 app.post('/api/add-note', handlers.api.addNote);
 
