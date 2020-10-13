@@ -21,28 +21,4 @@
     </form>
 </div>
 
-<script>
-    document.getElementById('addNoteForm')
-        .addEventListener('submit', event => {
-            event.preventDefault();
-            const form = event.target;
-            const body = JSON.stringify({
-                noteTitle: form.elements.noteTitle.value,
-                noteDescription: form.elements.noteDescription.value,
-            });
-            const headers = { 'Content-Type': 'application/json' };
-            const container = document.getElementById('addNoteFormContainer');
-            fetch('/api/add-note', { method: 'post', body, headers })
-                .then(resp => {
-                    if(resp.status < 200 || resp.status >= 300)
-                        throw new Error('Request failure');
-                    return resp.json()
-                })
-                .then(json => {
-                    container.innerHTML = 'Note added'
-                })
-                .catch(err => {
-                    container.innerHTML = 'An error occurs'
-                });
-        });
-</script>
+<script src="scripts/forms.js"></script>
