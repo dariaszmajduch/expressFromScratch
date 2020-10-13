@@ -1,13 +1,13 @@
 {
-  "name": "express_from_scratch",
+  "name": "work_organizer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic express project with connection to DB",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint index.js lib"
   },
-  "author": "",
+  "author": "dariaszmajduch",
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.19.0",
